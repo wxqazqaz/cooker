@@ -1,0 +1,16 @@
+# -*- coding: utf-8 -*-
+
+# Define your item pipelines here
+#
+# Don't forget to add your pipeline to the ITEM_PIPELINES setting
+# See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
+
+
+class StoryTestPipeline(object):
+    def process_item(self, item, spider):
+        string = ''
+        for i in range(len(item['text'])):
+            string += item['text'][i].strip() + '\n'
+        print('\t\t'+ item['h'])
+        print(string)
+        return item
